@@ -462,7 +462,12 @@ class Fresque
         $count = $this->runtime['Default']['workers'];
 
         $this->debug('Will start ' . $count . ' workers');
-
+        
+        $env = $this->runtime['Env'];
+        foreach ($env as $key => $value) {
+            $environmentVars .= "{$key}={$value} ";
+        }
+        
         for ($i = 1; $i <= $count; $i++) {
 
             $libraryPath = $scheduler ? $this->runtime['Scheduler']['lib'] : $this->runtime['Fresque']['lib'];
@@ -473,6 +478,7 @@ class Fresque
 
             $cmd = 'nohup ' . ($this->runtime['Default']['user'] !== $this->getProcessOwner() ? ('sudo -u '. escapeshellarg($this->runtime['Default']['user'])) : "") . " \\\n".
             'bash -c "cd ' .
+            escapeshellarg($environmentVars) . " \\\n".
             escapeshellarg($libraryPath) . '; ' . " \\\n".
             (($this->runtime['Default']['verbose']) ? 'VVERBOSE' : 'VERBOSE') . '=true ' . " \\\n".
             'QUEUE=' . escapeshellarg($this->runtime['Default']['queue']) . " \\\n".
