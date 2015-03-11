@@ -490,8 +490,8 @@ class Fresque
 
             $cmd = 'nohup ' . ($this->runtime['Default']['user'] !== $this->getProcessOwner() ? ('sudo -u '. escapeshellarg($this->runtime['Default']['user'])) : "") . " \\\n".
             'bash -c "cd ' .
-            escapeshellarg($environmentVars) . " \\\n".
             escapeshellarg($libraryPath) . '; ' . " \\\n".
+            $environmentVars . " \\\n".
             (($this->runtime['Default']['verbose']) ? 'VVERBOSE' : 'VERBOSE') . '=true ' . " \\\n".
             'QUEUE=' . escapeshellarg($this->runtime['Default']['queue']) . " \\\n".
             'PIDFILE=' . escapeshellarg($pidFile) . " \\\n".
