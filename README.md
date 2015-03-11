@@ -15,12 +15,12 @@ Two additional options have been added to the `stop` command:
 
 Environment Variables
 
-A new `[Env]` section to the configuration file:
+Added an application environment section to the configuration file:
 
-> [Env]
-> APPLICATION_ENV=production 
-> APPLICATION_PATH=/path/to/application/path
-> SESSION=session
+    [Env]
+    APPLICATION_ENV=production 
+    APPLICATION_PATH=/path/to/application/path
+    SESSION=session
 
 ##Credits
 
