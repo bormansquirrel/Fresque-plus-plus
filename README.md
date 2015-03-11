@@ -13,9 +13,7 @@ Two additional options have been added to the `stop` command:
 	$ fresque stop -c /path/to/conf -q default # stop all workers for default queue
 	$ fresque stop -c /path/to/conf -q a # stop 2 workers for activity queue
 
-Environment Variables
-
-Added an application environment section to the configuration file:
+Added an application environment variable section to the configuration file:
 
     [Env]
     APPLICATION_ENV=production 
