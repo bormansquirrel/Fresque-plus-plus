@@ -11,7 +11,7 @@ Two additional options have been added to the `stop` command:
 > `-o` or `--count` : An additional optional which can be specified along with the `--queue` option to stop a fixed number of workers from the queue.
 
 	$ fresque stop -c /path/to/conf -q default # stop all workers for default queue
-	$ fresque stop -c /path/to/conf -q a # stop 2 workers for activity queue
+	$ fresque stop -c /path/to/conf -q 2 # stop 2 workers for activity queue
 
 Added an application environment variable section to the configuration file:
 
