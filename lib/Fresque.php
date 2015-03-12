@@ -700,11 +700,11 @@ class Fresque
                     foreach ($options->workers as $i => $worker) {
                         list($hostname, $pid, $queue) = explode(':', (string)$worker);
                         if ($queue == $workerQueueName) {
-                            $workerIndex[] = $i;
+                            $workerIndex[] = $i+1;
                         }
                     }
                     
-                    if ($count > 0) {
+                    if ($count > 0 && $count <= count($workerIndex)) {
                         $workerIndex = array_slice($workerIndex, 0, $count);
                     }
                     
