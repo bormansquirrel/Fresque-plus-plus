@@ -738,7 +738,7 @@ class Fresque
             }
 
             foreach ($workerIndex as $index) {
-                $worker = $options->workers[$index];
+                $worker = $options->workers[$index-1];
 
                 list($hostname, $pid, $queue) = explode(':', (string)$worker);
 
